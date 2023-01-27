@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Tsegi.xyz</title>
+        <link rel="shortcut icon" href="http://www.tsegi.xyz/favicon.ico">
+        <link rel="stylesheet" href="styles.css">
+        <script src="main.js"></script>
+    </head>
+    <body onload="Load()" onunload="SaveGame()">
+        <center><footer><table style="border: 1px solid rgb(255, 255, 255);border-collapse: collapse;line-height: 1;padding: 0 10px;font-size: 1rem;text-align: center;color: #fff;text-shadow: 1px 1px 2px #000;background-color: rgb(0, 0, 0);background-image: linear-gradient(to top left,rgb(255, 0, 149),rgb(195, 0, 255),rgb(119, 0, 255),rgb(25, 0, 255),rgb(0, 140, 255),rgb(0, 247, 255),rgb(0, 255, 149),rgb(0, 255, 0),rgb(208, 255, 0),rgb(255, 208, 0),rgb(255, 123, 0),rgb(255, 0, 0) 100%,rgba(0, 0, 0, 0)); box-shadow: inset 6px 6px 9px rgba(0, 0, 0, 0.2),inset -6px -6px 9px rgba(230, 0, 0, 0.2);"><tbody><tr style="border: 1px solid rgb(255, 255, 255);border-collapse: collapse;line-height: 1;padding: 0 10px;font-size: 1rem;text-align: center;color: #fff;text-shadow: 1px 1px 2px #000;background-color: rgb(0, 0, 0);background-image: linear-gradient(to top left,rgb(255, 0, 149),rgb(195, 0, 255),rgb(119, 0, 255),rgb(25, 0, 255),rgb(0, 140, 255),rgb(0, 247, 255),rgb(0, 255, 149),rgb(0, 255, 0),rgb(208, 255, 0),rgb(255, 208, 0),rgb(255, 123, 0),rgb(255, 0, 0) 100%,rgba(0, 0, 0, 0)); box-shadow: inset 6px 6px 9px rgba(0, 0, 0, 0.2),inset -6px -6px 9px rgba(230, 0, 0, 0.2);"><td style="border: 1px solid rgb(255, 255, 255);border-collapse: collapse;line-height: 1;padding: 0 10px;font-size: 1rem;text-align: center;color: #fff;text-shadow: 1px 1px 2px #000;background-color: rgb(0, 0, 0);background-image: linear-gradient(to top left,rgb(255, 0, 149),rgb(195, 0, 255),rgb(119, 0, 255),rgb(25, 0, 255),rgb(0, 140, 255),rgb(0, 247, 255),rgb(0, 255, 149),rgb(0, 255, 0),rgb(208, 255, 0),rgb(255, 208, 0),rgb(255, 123, 0),rgb(255, 0, 0) 100%,rgba(0, 0, 0, 0)); box-shadow: inset 6px 6px 9px rgba(0, 0, 0, 0.2),inset -6px -6px 9px rgba(230, 0, 0, 0.2);"><p>
+            <button onclick="SaveGame()">Save game</button>
+            <button onclick="Load()">Load from save</button>
+            <button id="reset" onclick="ResetDataPrompt()">Reset all data</button>
+            <p><a style="color:white; text-decoration:none; font-weight: normal;" href="http://www.tsegi.xyz/index.php"><b>&copy; Tsegi.xyz 2023</b></a></p></p>
+        </td></tr></tbody></table></footer></center>
+        <table width="100%" height="20" cellspacing="10"><tbody><tr><td><p>
+            <img src="media/download-removebg-preview.png" onclick="alert('woah! a secret!!!')">
+            <b id="lifetimeBeenz" style="font-size:5.8rem;">0</b>
+            <!--</p><i style="font-size:1.4rem">Note: this game is a work in progress, more features to be added soon</i>-->
+        <p></p></td></tr></tbody></table><p></p>
+    <center>
+        <div>
+            <button onclick="CreateBeenz()">generate a been</button>
+            <button id="sacrificeBeenzButton" style="background-color: #333333;" onclick="SacrificeBeenz()">sacrifice <b id='sacrificeBeenzPower' style="color:white">25</b> beenz</button>
+            <p><meter style="width:90%; height:50px;" id="beenzMeter" min="0" max="50" low="45" high="49" optimum="40" value='0'></meter></p>
+            <p><label for="beenzMeter">Beenz: </label><b id='beenzAmount'>0</b></p>
+            <p>Beenz Power: <b>x</b><b id='beenzPower'>1</b></p>
+            <p><button id="upgradeContainer" style="background-color: #333333;" onclick="UpgradeBeenzContainer()">upgrade beenz container</button> Cost: <b id='upgradeContainerCost'>50</b> Beenz</p>
+            <p><button id="autoBeenMK1" style="background-color: #333333;" onclick="BUYautoBeenMK1()">buy Auto Been MK1</button> Cost: <b id='autoBeenMK1Cost'>100.0</b> Beenz</p>
+            <p><button id="autoBeenMK2" style="background-color: #333333;" onclick="BUYautoBeenMK2()">buy Auto Been MK2</button> Cost: <b id='autoBeenMK2Cost'>3000.0</b> Beenz</p>
+            <p>Auto Been MK1's: <b id="autoBeenMK1Amount">0</b></p>
+            <p>Auto Been MK2's: <b id="autoBeenMK2Amount">0</b></p>
+            <p>Auto Been MK3's: <b id="autoBeenMK3Amount">0</b></p>
+        </div>
+        <p style="color: #151515;">.</p>
+        <div>
+            <p><b>Research and Development</b></p><hr>
+            <table width="80%" height="20" cellspacing="10"><tbody><tr>
+                <td><center>
+                    <p><b><u>Logistics</u></b></p>
+                    <p>Labs: <b>level </b><b id="labs">0</b>  Capacity: <b id="capacity">2</b><b> bytes</b></p>
+                    <p>Bytes: <b id="bytes">0</b></p>
+                    <table width="90%" height="20" cellspacing="10"><td><center>
+                        <p><button id="upgradeCapacity" style="background-color: #333333;" onclick="UpgradeCapacity()">Upgrade Capacity</button></p>
+                        <p><b id="capacityUpgradeCost">1000</b> Beenz</p>
+                        <p><button id="upgradeLabs" style="background-color: #333333;" onclick="UpgradeLabs()">Upgrade Labs</button></p>
+                        <p><b id="labsUpgradeCost">10000</b> Beenz</p>
+                    </center></td></table>
+                    <p></p>
+                </center></td>
+                <td><center>
+                    <p><b><u>Research</u></b></p>
+                    <p>RP: <b id="rp">0</b></p>
+                    <p><button id="createRP" style="background-color: #333333;" onclick="CreateRP()">Create RP</button> <b id="rpCost">5</b> bytes</p>
+                    <table width="90%" height="20" cellspacing="10"><td><center>
+                        <p><button id="autoBeenMK3" style="background-color: #333333;" onclick="RESEARCHautoBeenMK3()">Auto Been MK3</button> <b id="autoBeenMK3Cost">20</b> RP</p>
+                        <p><button id="powerInjection" style="background-color: #333333;" onclick="RESEARCHpowerInjection()">Power Injection</button> <b id="powerInjectionCost">50</b> RP</p>
+                    </center></td></table>
+                    <p></p>
+                </center></td>
+            </tr></tbody></table>
+        </div>
+        <p style="color: #151515;">.</p><p style="color: #151515;">.</p><p style="color: #151515;">.</p><p style="color: #151515;">.</p><p style="color: #151515;">.</p><p style="color: #151515;">.</p><p style="color: #151515;">.</p><p style="color: #151515;">.</p>
+    </center>
+    </body>
+</html>
